@@ -21,7 +21,8 @@ import org.springframework.web.client.RestTemplate;
 @ComponentScan(basePackages = {
         "com.micro.server.order.controller",
         "com.micro.server.order.service",
-        "com.micro.server.order.properties"})
+        "com.micro.server.order.properties",
+        "com.micro.server.order.fallback"})
 public class OrderApplication {
     public static void main(String[] args) {
         SpringApplication.run(OrderApplication.class, args);

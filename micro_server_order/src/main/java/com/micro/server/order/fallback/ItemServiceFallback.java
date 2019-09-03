@@ -1,6 +1,7 @@
-package com.micro.server.order.service;
+package com.micro.server.order.fallback;
 
 import com.micro.server.order.entity.Item;
+import com.micro.server.order.service.ItemFeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;
 
