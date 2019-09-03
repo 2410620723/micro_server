@@ -60,4 +60,20 @@ public class OrderService {
         return order;
     }
 
+    public Order queryOrderByIdx(String orderId) {
+        Order order = ORDER_DATA.get(orderId);
+        if (order == null) {
+            return null;
+        }
+        List<OrderDetail> orderDetails = order.getOrderDetails();
+        orderDetails.forEach(o -> {
+            Item item = itemService.queryItemByIdx(o.getItem().getId());
+            if (item == null) {
+                return;
+            }
+            o.setItem(item);
+        });
+        return order;
+    }
+
 }

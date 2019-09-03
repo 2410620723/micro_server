@@ -21,6 +21,11 @@ public class OrderController {
     public Order queryOrderById(@PathVariable String id) {
         return orderService.queryOrderById(id);
     }
+
+    @GetMapping("/queryOrderByIdx/{id}")
+    public Order queryOrderByIdx(@PathVariable String id) {
+        return orderService.queryOrderByIdx(id);
+    }
     @GetMapping("/index")
     public String index() {
         return "index";
