@@ -26,3 +26,7 @@ eureka:
 micro-server-item:
   ribbon:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #设置负载均衡策略
+#开启hystrix断路器
+feign:
+  hystrix:
+    enabled: true
