@@ -11,6 +11,8 @@
         <module>micro_server_order</module>
         <module>eureka</module>
         <module>eureka-slave</module>
+		<module>micro_server_item_slave</module>
+        <module>micro-server-test</module>
 
     </modules>
 	<parent>
