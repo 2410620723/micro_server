@@ -24,6 +24,9 @@ public class ItemService {
     @Autowired
     private OrderProperties orderProperties;
 
+    @Autowired
+    private ItemFeignClient itemFeignClient;
+
     /**
      * 根据id查询商品
      *
@@ -31,8 +34,9 @@ public class ItemService {
      * @return 返回商品信息
      */
     public Item queryItemById(Long id) {
-        String itemUrl = "http://micro-server-item/item/queryItemById/{id}";
-        return restTemplate.getForObject(itemUrl, Item.class, id);
+        /*String itemUrl = "http://micro-server-item/item/queryItemById/{id}";
+        return restTemplate.getForObject(itemUrl, Item.class, id);*/
+        return itemFeignClient.queryItemById(id);
     }
 
     /**
@@ -40,7 +44,7 @@ public class ItemService {
      * @param id 商品id
      * @return 返回商品信息
      */
-    @HystrixCommand(fallbackMethod = "queryItemByIdFallbackMethod")
+    // @HystrixCommand(fallbackMethod = "queryItemByIdFallbackMethod")
     public Item queryItemByIdx(Long id) {
         String itemUrl = "http://micro-server-item/item/queryItemById/{id}";
         Item item = restTemplate.getForObject(itemUrl, Item.class, id);
